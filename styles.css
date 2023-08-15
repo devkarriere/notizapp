@@ -20,7 +20,7 @@
 }
 
 .main-content {
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 1rem;
   width: 100%;
 }
 
@@ -51,6 +51,7 @@
 .title-and-save {
   display: flex;
   margin-bottom: 1.5rem;
+  gap: 0.5rem;
 }
 
 .sidebar {
@@ -61,7 +62,8 @@
 }
 
 .create-new,
-.save-note {
+.save-note,
+.delete-note {
   color: white;
   background-color: var(--primary-color-rgb);
   border: none;
@@ -75,13 +77,32 @@
 }
 
 .create-new:hover,
-.save-note:hover {
+.save-note:hover,
+.delete-note:hover {
   background-color: var(--primary-color--hover);
 }
 
-.save-note {
+.create-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.create-new .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.save-note,
+.delete-note {
   width: unset;
   padding: 1rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
 }
 
 .notes-list {
