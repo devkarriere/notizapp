@@ -28,11 +28,14 @@ function displayNotesList() {
 
   let html = "";
 
+  // TODO: escape html for title and content <- UNBEDINGT INS TUTORIAL DEMONSTIEREN
   sortedNotes.forEach((note) => {
     html += `
             <div class="note-entry" data-id="${note.id}">
-                <div class="note-title">${note.title}</div>
-                <div class="note-content-teaser">${note.content}</div>
+                <div class="note-title">${escapeHtml(note.title)}</div>
+                <div class="note-content-teaser">${escapeHtml(
+                  note.content
+                )}</div>
                 <div class="note-date">${new Date(
                   note.lastUpdated
                 ).toLocaleString("de-DE")}</div>
@@ -59,7 +62,6 @@ function clickSaveButton() {
   const idStoreEl = document.getElementById("note-id-store");
 
   const currentId = idStoreEl.getAttribute("data-id");
-  console.log(currentId);
 
   NotesAPI.saveNote(title, content, Number(currentId));
 
@@ -116,4 +118,13 @@ function newNote() {
   const idStoreEl = document.getElementById("note-id-store");
 
   idStoreEl.removeAttribute("data-id");
+}
+
+function escapeHtml(text) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }

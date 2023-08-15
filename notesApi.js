@@ -23,7 +23,7 @@ class NotesAPI {
 
   static saveNote(title, content, id = undefined) {
     const notes = this.getNotes();
-    // TODO FIX BUG
+
     if (!id) {
       notes.push({
         title,
@@ -33,7 +33,7 @@ class NotesAPI {
       });
     } else {
       const indexOfNoteWithId = notes.findIndex((note) => note.id === id);
-      console.log(indexOfNoteWithId);
+
       if (indexOfNoteWithId > -1) {
         notes[indexOfNoteWithId] = {
           title,
