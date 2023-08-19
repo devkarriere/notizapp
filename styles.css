@@ -8,7 +8,7 @@
 :root {
   --font-family: "Poppins", sans-serif;
   --primary-color: 246, 93, 231;
-  --primary-color-rgb: rgb(246, 93, 231);
+  --primary-color-rgb: rgb(var(--primary-color));
   --primary-color--hover: rgb(249, 126, 237);
 }
 
